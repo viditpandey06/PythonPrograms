@@ -1,0 +1,68 @@
+Exception is an abnormal condition that occur at the run time and prevent or terminate execution of 
+your program, like dividing any number by zero
+Eg-
+var='R'
+x=int(var)//value error
+f=open ('myfile.txt','r')
+s=f.write('hello')
+myList=[11,22]
+print(myList[4])//Index error
+
+
+
+Exception handling in Python refers to the process of managing and responding to errors that occur during the execution of a program. Errors can arise due to various reasons, such as invalid user input, file not found, division by zero, etc. Exception handling allows you to gracefully deal with these errors rather than letting the program crash abruptly.
+
+In Python, exception handling is primarily done using the try, except, else, and finally blocks.
+
+Here's a breakdown of these blocks:
+
+try block: The try block is used to wrap the code where an exception might occur. It's where you anticipate an error to happen.
+
+python
+Copy code
+try:
+    # code that might raise an exception
+    # ...
+except SomeException:
+    # code to handle the specific exception (SomeException)
+    # ...
+except AnotherException as e:
+    # code to handle another specific exception (AnotherException)
+    # e is the exception object that can be used for further information
+    # ...
+except:
+    # code to handle any other exceptions that are not explicitly caught above
+    # ...
+else:
+    # code that will be executed if no exception occurs in the try block
+    # ...
+finally:
+    # code that will be executed whether an exception occurred or not
+    # cleanup code or finalization logic can be placed here
+    # ...
+except block: The except block catches and handles specific exceptions that occur within the try block. You can have multiple except blocks to catch different types of exceptions. If an exception occurs that matches the type specified in any of the except blocks, the corresponding block will be executed.
+
+else block (optional): The else block is executed only if no exceptions occur in the try block. It's typically used for code that should run when no exceptions are raised.
+
+finally block (optional): The finally block is executed regardless of whether an exception occurs or not. It's usually used for cleanup actions like closing files or releasing resources.
+
+Example:
+
+python
+Copy code
+try:
+    num1 = int(input("Enter a number: "))
+    num2 = int(input("Enter another number: "))
+    result = num1 / num2
+    print("Result:", result)
+except ValueError:
+    print("Please enter a valid number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+else:
+    print("Division performed successfully.")
+finally:
+    print("Execution completed.")
+In this example, if the user enters an invalid number (ValueError) or attempts to divide by zero (ZeroDivisionError), the respective except block will handle the exception. If no exception occurs, the else block will execute. Finally, the finally block will always be executed, regardless of whether an exception occurred or not.
+
+Exception handling is essential for writing robust and fault-tolerant code by allowing you to handle unexpected situations and prevent abrupt program termination.
