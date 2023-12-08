@@ -1,0 +1,29 @@
+Abstraction only shows essential features to the user and hide internal details.
+In python we can achieve abstraction using abstract class and abstraact method.
+What is a abstract method.
+A method that is only declared and does not have defination or body.
+It is redefined in sub class.
+We use decorator @abstraactmethod to mark it as abstract method.
+from abc import ABC, abstractmethod
+
+# Define an abstract class with an abstract method
+class Shape(ABC):  # ABC is used to create an abstract base class
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+# Create a subclass that inherits from the abstract class
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    # Implementing the abstract method from the parent abstract class
+    def calculate_area(self):
+        return self.side * self.side
+
+# Attempting to create an instance of the abstract class will result in an error
+# shape = Shape()  # This will raise TypeError: Can't instantiate abstract class Shape with abstract methods calculate_area
+
+# Creating an instance of the subclass
+square = Square(5)
+print("Area of the square:", square.calculate_area())  # Output: Area of the square: 25
