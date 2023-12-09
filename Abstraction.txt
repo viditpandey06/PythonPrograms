@@ -27,3 +27,8 @@ class Square(Shape):
 # Creating an instance of the subclass
 square = Square(5)
 print("Area of the square:", square.calculate_area())  # Output: Area of the square: 25
+An abstract class generally contain some abstract method 
+We cannot create object of abstract class because it is not fully defined class.
+We need to import abc meta module.
+
+If you have not redefined all the abstract method of super class then particular sub class will become abstract.
